@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>changeイベント vs keyupイベント vs inputイベント</title>
+</head>
+<body>
+
+<h1>changeイベント vs keyupイベント vs inputイベント</h1>
+
+
+<h2>changeイベント</h2>
+
+<input id="changeFrom" type="text">
+<span id="changeTo"></span>
+
+<script>
+var changeFrom = document.getElementById('changeFrom');
+var changeTo = document.getElementById('changeTo');
+changeFrom.addEventListener('change', function() {
+  changeTo.textContent = this.value;
+});
+</script>
+
+
+<h2>keyupイベント</h2>
+
+<input id="keyupFrom" type="text">
+<span id="keyupTo"></span>
+
+<script>
+var keyupFrom = document.getElementById('keyupFrom');
+var keyupTo = document.getElementById('keyupTo');
+keyupFrom.addEventListener('keyup', function() {
+  keyupTo.textContent = this.value;
+});
+</script>
+
+
+<h2>inputイベント</h2>
+
+<input id="inputFrom" type="text">
+<span id="inputTo"></span>
+
+<script>
+var inputFrom = document.getElementById('inputFrom');
+var inputTo = document.getElementById('inputTo');
+inputFrom.addEventListener('input', function() {
+  inputTo.textContent = this.value;
+});
+</script>
+
+
+<h2>inputイベントの問題</h2>
+
+<blockquote>
+<p>[2] IE 9 does not fire an input event when the user deletes characters from an input (e.g. by pressing Backspace or Delete, or using the "Cut" operation).</p>
+<div>- <a href="https://developer.mozilla.org/en-US/docs/Web/Events/input">https://developer.mozilla.org/en-US/docs/Web/Events/input</a></div>
+</blockquote>
+
+
+</body>
+</html>
